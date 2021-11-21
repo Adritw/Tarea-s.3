@@ -1,0 +1,81 @@
+*{
+    margin:10px;
+    padding: 10px;
+    max-width: 1200px;
+}
+.padre{
+    display:flex;      /*aplicamos flex box en la clase padre que contiene todo. Disposicion flex cajitas uno al lado de la otra. Antes disposicion del navegador uno debajo de la otra*/
+    flex-flow: column nowrap;  /* lo ponemos en columnas y  nowrap para que se adapte al tamano establecido*/
+}
+    .header{               /* otra 2ª categoria padre */
+        background: #000;
+        display:flex;
+        flex-flow: column nowrap;
+    }
+        .menu{      /*en 3º clase padre tambien flex y bloques= row  y nowrap para que se adapte*/
+            background: #2E4C6D;
+            display:flex;
+            flex-flow: row nowrap;
+        }
+            .logo{      /* en el hijo le ponemos el flex que queremos a cada box con flex (probar antes en Flexy-Boxes */
+                background: #F90716;
+                flex: 1 1 auto;                
+            }
+            .nav{
+                background: #F90716;
+                flex: 5 1 auto;
+            }
+            .social{
+                background: #F90716;
+                flex: 1 1 auto;
+            }
+        .textoPrincipal{
+            background: #FF7800;
+        }
+            .texto{
+                background:#FFE300;
+            }
+    .section{       /* 2ª clase padre del sig bloque: flex (boxes uno al lado de otra)*/
+        background: #000;
+        display: flex;
+    }
+        .articulos{  /* en el 3º padre articulos y aside establecemos flex 2 1 y 1 1 para que ocupe 100% de seccion*/
+            background: #142F43;
+            flex: 1 1 auto;
+            display: flex;
+            flex-flow: row wrap;   /* row  (uno al lado del otro, la prop wrap esatblece que si no cabe el/los ultimo box baja*/ 
+        }
+            .article{       
+               background: #009DAE;
+               flex: 1 1 40%;      /* los hijos le ponemos anchos para hacer bajar el ultimo box y distribuir los article*/
+            }
+            .navegacion{
+                background:#71DFE7;
+                flex: 1 1 100%;  /*ancho que ocupe el 100% de articulos*/
+            }
+        .aside{
+            background: #FF87CA;
+             flex: 1 1 auto;
+        }
+            .publicidad{
+                background: #8A8635;
+            }
+    .footer{
+        background: #000;
+    }
+        .pie{
+            background: #FFE652;
+        }
+@media all and (max-width: 800px){   /*con media query decimos que cuando la medida sea de 0 a 800 pc */
+    .section{       /* aside bajara porque por def flex pone row uno al lado del otro pero la medida es la que queremos*/
+        flex-direction: column;  /* entonce le ponemos columna aside baja*/
+    }
+}
+@media all and (max-width: 600px){  /* nueva media query modificacion en clases padre para medida 600 px*/
+    .menu{
+        flex-direction: column;
+    }
+    .articulos{
+        flex-direction: column;
+    }
+}   
